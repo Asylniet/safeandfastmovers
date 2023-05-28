@@ -1,10 +1,11 @@
 import { lazy } from "react";
 import { Navigate } from "react-router-dom";
 import Layout from "../layouts/Layout.jsx";
-import Services from "../views/Services.jsx";
 
 const Home = lazy(() => import("../views/Home.jsx"));
 const About = lazy(() => import("../views/About.jsx"));
+const Services = lazy(() => import("../views/Services.jsx"));
+const Medicine = lazy(() => import('../views/Medicine.jsx'));
 
 const Router = [
     {
@@ -14,7 +15,8 @@ const Router = [
             { path: "/", element: <Navigate to="/home" /> },
             {path: '/home', element: <Home />},
             {path: '/about', element: <About />},
-            {path: '/service', element: <Services />},
+            {path: '/services', element: <Services />},
+            {path: '/medicals', element: <Medicine />},
         ]
       },
 ]

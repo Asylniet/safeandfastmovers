@@ -1,4 +1,5 @@
 import { useGetServices } from "../../hooks/useGetServices";
+import { Loader } from "../Loader";
 import { Service } from "./Service";
 // import { GetServices } from "./GetServices";
 import { useEffect, useState } from "react";
@@ -36,7 +37,7 @@ export const ServiceList = () => {
                             onChange={(e) => setSearch(e.target.value)}
                         />
                         <div class="input-group-append">
-                            <button class="btn btn-outline-secondary" type="button">Button</button>
+                            <button class="btn btn-outline-secondary" type="button" onClick={() => setSearch('')}>Clear</button>
                         </div>
                     </div>
                     {services.status !== 'loading' && filteredServices && filteredServices.map((service) => (
@@ -48,11 +49,7 @@ export const ServiceList = () => {
                         </div>
                     )}
                     {services.status === 'loading' && (
-                        <div className="d-flex w-100 py-5 justify-content-center">
-                            <div class="spinner-border" role="status">
-                                <span class="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
+                        <Loader />
                     )}
                 </div>
             </div>

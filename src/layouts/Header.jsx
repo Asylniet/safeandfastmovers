@@ -1,7 +1,7 @@
 import { Link, useLocation } from 'react-router-dom';
 
 const Header = () => {
-  const links = ['home', 'about', 'appointment', 'service', 'contact'];
+  const links = ['home', 'about', 'medicals', 'services'];
   const location = useLocation();
   return (
     <header>
@@ -27,8 +27,8 @@ const Header = () => {
       </div>
       <nav className="navbar navbar-expand-lg navigation" id="navbar">
         <div className="container">
-          <Link className="navbar-brand" to="/">
-            <img src="images/logo.png" alt="" className="img-fluid" />
+          <Link className="navbar-brand p-0 m-0" to="/">
+            MedSearch
           </Link>
 
           <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
@@ -37,7 +37,7 @@ const Header = () => {
           </button>
 
           <div className="collapse navbar-collapse" id="navbarmain">
-            <ul className="navbar-nav ml-auto">
+            <ul className="navbar-nav ms-auto">
               {links.map((link) => (
                 <li className={`nav-item ${ location.pathname.slice(1).replace(/\/+$/, '') === link ? 'active' : ''}`}><Link className="nav-link" to={link}>{link.charAt(0).toUpperCase() + link.slice(1)}</Link></li>
               ))}
